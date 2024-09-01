@@ -1,1 +1,24 @@
-.vs
+# Ignore build directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.userprefs
+
+# Ignore Visual Studio Code workspace
+.vscode/
+.vscode/*
+
+# Ignore Rider project files
+.idea/
+
+# Ignore log files
+*.log
+
+# Ignore package directories
+**/packages
+*.nuget/
