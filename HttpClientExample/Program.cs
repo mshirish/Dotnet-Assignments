@@ -14,7 +14,7 @@ class Program
 				//sending a GET request to the url
 				HttpResponseMessage request = await httpClient.GetAsync(url);
 
-				request.Headers.Add("x-rapidapi-key", "2e8a1acf4bmsh9d2e7d24d6c74d5p1aef49jsn2548842af06d");
+				request.Headers.Add("x-rapidapi-key", "your-api-key-here"); // adding headers
 
 				//Check if response is successfull
 				request.EnsureSuccessStatusCode();

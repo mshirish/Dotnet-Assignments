@@ -12,6 +12,7 @@ obj/
 # Ignore Visual Studio Code workspace
 .vscode/
 .vscode/*
+.vs
 
 # Ignore Rider project files
 .idea/
