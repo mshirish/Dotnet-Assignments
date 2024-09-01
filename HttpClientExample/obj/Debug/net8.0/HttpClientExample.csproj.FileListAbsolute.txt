@@ -1,0 +1,14 @@
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.AssemblyInfoInputs.cache
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.AssemblyInfo.cs
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.csproj.CoreCompileInputs.cache
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\bin\Debug\net8.0\HttpClientExample.exe
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\bin\Debug\net8.0\HttpClientExample.deps.json
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\bin\Debug\net8.0\HttpClientExample.runtimeconfig.json
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\bin\Debug\net8.0\HttpClientExample.dll
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\bin\Debug\net8.0\HttpClientExample.pdb
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.dll
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\refint\HttpClientExample.dll
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.pdb
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\HttpClientExample.genruntimeconfig.cache
+C:\Users\Legion\Desktop\MyPersonal .NetProjects\HttpClientExample\HttpClientExample\obj\Debug\net8.0\ref\HttpClientExample.dll
