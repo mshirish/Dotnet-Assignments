@@ -1,0 +1,98 @@
+﻿@page "/fetchdata"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using RedisDemo.Data
+@using RedisDemo.Extensions
+@inject WeatherForecastService ForecastService
+@inject IDistributedCache cache
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<buton class="btn-btn-primary" @onclick ="LoadForecast">Load Forecast</buton>
+
+@if (forecasts is null && loadLocation == "")
+{
+    <p><em>Click the button to load the forecast</em></p>
+}
+else if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="h3 @isCacheData">
+        @loadLocation
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    // An array to store weather forecast data, which could be null initially
+    private WeatherForecast[]? forecasts;
+
+    // Strings to indicate where the data was loaded from and whether it was retrieved from cache
+    private string loadLocation = "";
+    private string isCacheData = "";
+
+    // This method is used to load weather forecast data, either from the cache or by fetching it from the API
+    private async Task LoadForecast()
+    {
+        // Set the forecasts and loadLocation to null to indicate fresh loading
+        forecasts = null;
+        loadLocation = null;
+
+        // Create a unique cache key based on the current date and time to store/retrieve forecasts
+        string recordKey = "WeatherForecast_" + DateTime.Now.ToString("yyyyMMdd_hhmm");
+
+        // Try to retrieve the weather forecasts from the distributed cache using the unique key
+        forecasts = await cache.GetRecordAsync<WeatherForecast[]>(recordKey);
+
+        // Check if forecasts were not found in the cache
+        if (forecasts is null)
+        {
+            // If not found, call the API to get the latest weather forecast data
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+
+            // Set the loadLocation to indicate the data was loaded from the API
+            loadLocation = $"Loaded from API at {DateTime.Now}";
+
+            // Clear the cache indicator, since this data is not from the cache
+            isCacheData = "";
+
+            // Store the newly retrieved forecasts in the cache for future use
+            await cache.SetRecordAsync(recordKey, forecasts);
+        }
+        else
+        {
+            // If forecasts were found in the cache, set the loadLocation to indicate it was loaded from the cache
+            loadLocation = $"Loaded from the cache at {DateTime.Now}";
+
+            // Set isCacheData to "text-danger" to apply a CSS class that may be used for styling cached data differently
+            isCacheData = "text-danger";
+        }
+    }
+}
